@@ -11,18 +11,21 @@ void itoa(int number, char numberstring[]) {
     numberstring[0] = (char)(number + 48);
     numberstring[1] = '\0';
 }
-int main()
- {
+
+int main() {
     int sockfd, newsockfd, size, currentpacket = 1;
     char buffer[100];
     socklen_t len;
     struct sockaddr_in server, client;
+
     memset(&server, 0, sizeof(server));
     memset(&client, 0, sizeof(client));
+
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
         printf("\n ERROR IN SOCKET CREATION...");
     else
         printf("\n socket created successfully....");
+
     server.sin_family = AF_INET;
     server.sin_port = htons(PORT);
     server.sin_addr.s_addr = INADDR_ANY;
